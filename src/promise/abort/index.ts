@@ -7,9 +7,9 @@
  */
 export default function (executor: FunctionExecutor, controller: AbortController) {
   new Promise((resolve, reject) => {
-    controller.signal.addEventListener("abort", function () {
-      reject();
-    });
+    // controller.signal.addEventListener("abort", function () {
+    //   reject();
+    // });
     executor(resolve, reject);
   });
 }
