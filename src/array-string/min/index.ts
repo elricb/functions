@@ -1,4 +1,6 @@
-// shortest string in an array
+/**
+ * shortest string in an array
+ */
 export default function (a: Array<string>) {
   return a.reduce(function (last: number, current: string) {
     if (last === -1) return current.length;

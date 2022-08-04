@@ -1,4 +1,6 @@
-// The mode is the number that occurs most often in a data set.
+/**
+ * The mode is the number that occurs most often in a data set.
+ */
 export default function (o: ObjectNumberArray) {
   const a = Object.values(o);
 

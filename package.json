@@ -16,7 +16,9 @@
   "homepage": "https://github.com/elricb/functions#readme",
   "scripts": {
     "test": "jest",
-    "build": "rm -rf ./dist && ./node_modules/typescript/bin/tsc"
+    "docs": "npx typedoc --entryPointStrategy expand --out ./docs ./src",
+    "build": "rm -rf ./dist && ./node_modules/typescript/bin/tsc",
+    "dist": "npm test && npm run docs && npm run build"
   },
   "devDependencies": {
     "@elricb/prettier-config": "^0.0.1",

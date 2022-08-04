@@ -1,4 +1,6 @@
-// shortest string in an object
+/**
+ * shortest string in an object
+ */
 export default function (o: ObjectStringArray) {
   const a = Object.values(o);
   return a.reduce(function (acc: number, s: string) {

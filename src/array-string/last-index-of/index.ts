@@ -1,4 +1,6 @@
-// position after last string found
+/**
+ * position after last string found
+ */
 export default function (s: string, a: Array<string>): number {
   let last = -1;
 

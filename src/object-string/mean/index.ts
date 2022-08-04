@@ -1,5 +1,7 @@
-// The mean (average) of a data set is found by adding all numbers in
-// the data set and then dividing by the number of values in the set.
+/**
+ * The mean (average) of a data set is found by adding all numbers in
+ * the data set and then dividing by the number of values in the set.
+ */
 export default function (o: ObjectStringArray) {
   let t = 0,
     i = 0;

@@ -1,5 +1,6 @@
 /**
  * Create a promise with optional abort signal
+ * Not compatable in all env, to deprecate or rewrite
  *
  * const controller = new AbortController();
  * abort((v,x) => v(), controller);
