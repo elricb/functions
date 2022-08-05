@@ -30,6 +30,10 @@
       },
       "default": "./lib/cjs/index.js"
     },
+    "./*": {
+      "require": "./lib/cjs/*",
+      "default": "./lib/esm/*"
+    },
     "./functions*": "./functions*",
     "./modules/*": {
       "require": "./lib/cjs/*",
