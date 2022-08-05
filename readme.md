@@ -2,8 +2,6 @@
 
 Functions/procedures I reuse.  These are low level functions, specifically focused, and not general, macro, or mixed type use.
 
-Available as ES Modules only.  commonjs require must use ".default".
-
 ## Install
 
 ```
@@ -15,7 +13,7 @@ $ npm install --save-dev @elricb/functions
 Include specific function in your code.
 
 ```js
-import max from "@elricb/functions/array-string/max";
+import max from "@elricb/functions/lib/array-string/max";
 
 console.log(max(["a", "ab", "abc"]));
 ```

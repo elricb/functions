@@ -7,8 +7,8 @@
     "url": "git+https://github.com/elricb/functions.git"
   },
   "author": "elricb (https://github.com/elricb)",
-  "main": "dist",
-  "module": "dist",
+  "main": "./lib",
+  "module": "./lib",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/elricb/functions/issues"
@@ -17,7 +17,7 @@
   "scripts": {
     "test": "jest",
     "docs": "npx typedoc --entryPointStrategy expand --out ./docs ./src",
-    "build": "rm -rf ./dist && ./node_modules/typescript/bin/tsc",
+    "build": "rm -rf ./lib && ./node_modules/typescript/bin/tsc",
     "dist": "npm test && npm run docs && npm run build"
   },
   "devDependencies": {
