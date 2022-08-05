@@ -32,7 +32,7 @@
     },
     "./functions*": "./functions*",
     "./modules/*": {
-      "require": "./cjs/*",
+      "require": "./lib/cjs/*",
       "default": "./lib/esm/*"
     },
     "./amd/*": "./lib/amd/*",
