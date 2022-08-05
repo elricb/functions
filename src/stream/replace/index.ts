@@ -28,10 +28,7 @@ export default function (
   function transform(chunk, encoding, callback) {
     let haystack = cache.tail + chunk.toString(baseEncoding);
     let lastIndex = lastIndexOf(haystack, cache.keys);
-
-    if (lastIndex === -1) {
-      lastIndex = cache.rewind;
-    }
+    lastIndex = Math.max(lastIndex, haystack.length - cache.rewind);
 
     cache.tail = haystack.slice(lastIndex);
     haystack = haystack.slice(0, lastIndex);
