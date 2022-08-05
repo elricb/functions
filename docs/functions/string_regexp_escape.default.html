@@ -11,25 +11,21 @@
 <div class="tsd-page-title">
 <ul class="tsd-breadcrumb">
 <li><a href="../modules.html">@elricb/functions</a></li>
-<li><a href="../modules/promise_readable_to_string.html">promise/readable-to-string</a></li>
-<li><a href="promise_readable_to_string.default.html">default</a></li></ul>
+<li><a href="../modules/string_regexp_escape.html">string/regexp-escape</a></li>
+<li><a href="string_regexp_escape.default.html">default</a></li></ul>
 <h1>Function default</h1></div>
 <section class="tsd-panel">
 <ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-<li class="tsd-signature tsd-anchor-link" id="default">default<span class="tsd-signature-symbol">(</span>readable<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><a href="#default" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
+<li class="tsd-signature tsd-anchor-link" id="default">default<span class="tsd-signature-symbol">(</span>base<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><a href="#default" aria-label="Permalink" class="tsd-anchor-icon"><svg class="icon icon-tabler icon-tabler-link" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none" id="icon-anchor-a"></path><path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" id="icon-anchor-b"></path><path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" id="icon-anchor-c"></path></svg></a></li>
 <li class="tsd-description">
-<div class="tsd-comment tsd-typography"><p>Convert stream to string</p>
-<pre><code class="language-js"><span class="hl-2">import</span><span class="hl-1"> {</span><span class="hl-0">Readable</span><span class="hl-1">} </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&quot;stream&quot;</span><span class="hl-1">;</span><br/><span class="hl-2">import</span><span class="hl-1"> </span><span class="hl-0">readableToString</span><span class="hl-1"> </span><span class="hl-2">from</span><span class="hl-1"> </span><span class="hl-3">&quot;@elricb/functions/promise/readable-to-string&quot;</span><span class="hl-1">;</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-6">rs</span><span class="hl-1"> = </span><span class="hl-0">Readable</span><span class="hl-1">.</span><span class="hl-4">from</span><span class="hl-1">(</span><span class="hl-3">&#39;Good morning!&#39;</span><span class="hl-1">, {</span><span class="hl-0">encoding:</span><span class="hl-1"> </span><span class="hl-3">&#39;utf8&#39;</span><span class="hl-1">}),</span><br/><span class="hl-6">console</span><span class="hl-1">.log(await readableToString(rs));</span>
-</code></pre>
-</div>
 <div class="tsd-parameters">
 <h4 class="tsd-parameters-title">Parameters</h4>
 <ul class="tsd-parameter-list">
 <li>
-<h5>readable: <span class="tsd-signature-type">any</span></h5></li></ul></div>
-<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4><aside class="tsd-sources">
+<h5>base: <span class="tsd-signature-type">string</span></h5></li></ul></div>
+<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4><aside class="tsd-sources">
 <ul>
-<li>Defined in promise/readable-to-string/index.ts:11</li></ul></aside></li></ul></section></div>
+<li>Defined in <a href="https://github.com/elricb/functions/blob/0c124bf/src/string/regexp-escape/index.ts#L1">string/regexp-escape/index.ts:1</a></li></ul></aside></li></ul></section></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
 <details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
@@ -63,6 +59,7 @@
 <li class="tsd-kind-module"><a href="../modules/array_string_median.html">array-<wbr/>string/median</a></li>
 <li class="tsd-kind-module"><a href="../modules/array_string_min.html">array-<wbr/>string/min</a></li>
 <li class="tsd-kind-module"><a href="../modules/array_string_mode.html">array-<wbr/>string/mode</a></li>
+<li class="tsd-kind-module"><a href="../modules/file_rmrf.html">file/rmrf</a></li>
 <li class="tsd-kind-module"><a href="../modules/object_int_max.html">object-<wbr/>int/max</a></li>
 <li class="tsd-kind-module"><a href="../modules/object_int_mean.html">object-<wbr/>int/mean</a></li>
 <li class="tsd-kind-module"><a href="../modules/object_int_median.html">object-<wbr/>int/median</a></li>
@@ -77,13 +74,15 @@
 <li class="tsd-kind-module"><a href="../modules/promise_abort.html">promise/abort</a></li>
 <li class="tsd-kind-module"><a href="../modules/promise_asynchronous.html">promise/asynchronous</a></li>
 <li class="tsd-kind-module"><a href="../modules/promise_function.html">promise/function</a></li>
-<li class="current tsd-kind-module"><a href="../modules/promise_readable_to_string.html">promise/readable-<wbr/>to-<wbr/>string</a></li>
 <li class="tsd-kind-module"><a href="../modules/promise_synchronous.html">promise/synchronous</a></li>
+<li class="tsd-kind-module"><a href="../modules/stream_readable_to_string.html">stream/readable-<wbr/>to-<wbr/>string</a></li>
 <li class="tsd-kind-module"><a href="../modules/stream_replace.html">stream/replace</a></li>
+<li class="current tsd-kind-module"><a href="../modules/string_regexp_escape.html">string/regexp-<wbr/>escape</a></li>
+<li class="tsd-kind-module"><a href="../modules/string_replace_all.html">string/replace-<wbr/>all</a></li>
 <li class="tsd-kind-module"><a href="../modules/typescript.html">typescript</a></li></ul></li></ul></div></details></nav>
 <nav class="tsd-navigation secondary menu-sticky">
 <ul>
-<li class="current tsd-kind-function tsd-parent-kind-module"><a href="promise_readable_to_string.default.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-64-path"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)" id="icon-64-text"></path></svg>default</a></li></ul></nav></div></div>
+<li class="current tsd-kind-function tsd-parent-kind-module"><a href="string_regexp_escape.default.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-64-path"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)" id="icon-64-text"></path></svg>default</a></li></ul></nav></div></div>
 <div class="container tsd-generator">
 <p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
 <div class="overlay"></div><script src="../assets/main.js"></script></body></html>
