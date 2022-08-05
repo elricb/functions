@@ -1,7 +1,6 @@
 const {Readable} = require("stream");
 const replaceStream = require("./index").default;
-const readableToString =
-  require("../../promise/readable-to-string/index").default;
+const readableToString = require("../readable-to-string/index").default;
 
 test('replace-stream({"fox": "foxy"}) = 4', async () => {
   const readable = Readable.from(
