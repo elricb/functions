@@ -3,7 +3,7 @@
  *
  * ```js
  * import {Readable} from "stream";
- * import readableToString from "@elricb/functions/lib/promise/readable-to-string";
+ * import readableToString from "@elricb/functions/promise/readable-to-string/index.js";
  * const rs = Readable.from('Good morning!', {encoding: 'utf8'}),
  * console.log(await readableToString(rs));
  * ```

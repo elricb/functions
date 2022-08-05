@@ -7,7 +7,7 @@ import lastIndexOf from "../../array-string/last-index-of";
  *
  * ```js
  * import {pipeline, Readable} from "stream";
- * import streamReplace from "@elricb/functions/lib/stream/replace";
+ * import streamReplace from "@elricb/functions/stream/replace/index.js";
  * pipeline(
  *   Readable.from('Good morning!', {encoding: 'utf8'}),
  *   streamReplace({morning: "evening"}),

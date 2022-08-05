@@ -34,13 +34,9 @@
       "require": "./lib/cjs/*",
       "default": "./lib/esm/*"
     },
-    "./functions*": "./functions*",
-    "./modules/*": {
-      "require": "./lib/cjs/*",
-      "default": "./lib/esm/*"
-    },
     "./amd/*": "./lib/amd/*",
     "./cjs/*": "./lib/cjs/*",
+    "./esm/*": "./lib/esm/*",
     "./package.json": "./package.json"
   },
   "scripts": {

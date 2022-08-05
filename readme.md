@@ -13,7 +13,7 @@ $ npm install --save-dev @elricb/functions
 Include specific function in your code.
 
 ```js
-import max from "@elricb/functions/lib/array-string/max";
+import max from "@elricb/functions/array-string/max/index.js";
 
 console.log(max(["a", "ab", "abc"]));
 ```
