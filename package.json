@@ -7,24 +7,53 @@
     "url": "git+https://github.com/elricb/functions.git"
   },
   "author": "elricb (https://github.com/elricb)",
-  "main": "./lib",
-  "module": "./lib",
+  "main": "lib/cjs",
+  "module": "lib/esm",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/elricb/functions/issues"
   },
   "homepage": "https://github.com/elricb/functions#readme",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "import": {
+        "module": "./lib/esm/index.js",
+        "node": "./lib/esm/index.mjs",
+        "default": "./lib/esm/index.js"
+      },
+      "require": {
+        "node": "./lib/cjs/index.cjs",
+        "default": "./lib/cjs/index.js"
+      },
+      "default": "./lib/cjs/index.js"
+    },
+    "./functions*": "./functions*",
+    "./modules/*": {
+      "require": "./cjs/*",
+      "default": "./lib/esm/*"
+    },
+    "./amd/*": "./lib/amd/*",
+    "./cjs/*": "./lib/cjs/*",
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "test": "jest",
+    "lint": "xo",
     "docs": "npx typedoc --entryPointStrategy expand --out ./docs ./src",
-    "build": "rm -rf ./lib && ./node_modules/typescript/bin/tsc",
-    "dist": "npm test && npm run docs && npm run build"
+    "build-cjs": "./node_modules/typescript/bin/tsc --project ./tsconfig-cjs.json --outDir ./lib/cjs --importHelpers",
+    "build-esm": "./node_modules/typescript/bin/tsc --project ./tsconfig-esm.json --outDir ./lib/esm --importHelpers",
+    "build": "rm -rf ./lib && npm run build-esm && npm run build-cjs",
+    "release": "npm test && npm run docs && npm run build"
   },
   "devDependencies": {
     "@elricb/prettier-config": "^0.0.1",
     "@elricb/xo-config": "^0.0.8",
     "jest": "^28.1.3",
     "ts-jest": "^28.0.7",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "xo": "^0.51.0"
   }
 }
