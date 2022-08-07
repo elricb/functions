@@ -3,7 +3,7 @@ import max from "../../array-string/max";
 import lastIndexOf from "../../array-string/last-index-of";
 
 /**
- * stream.Transform find/replace list of strings
+ * Stream.Transform find/replace list of strings
  *
  * ```js
  * import {pipeline, Readable} from "stream";
@@ -19,7 +19,7 @@ export default function (
   replaceList: ObjectStringArray,
   baseEncoding: string = "utf8"
 ): Transform {
-  let cache = {
+  const cache = {
     tail: "",
     keys: Object.keys(replaceList),
     rewind: max(Object.keys(replaceList))
@@ -46,6 +46,7 @@ export default function (
     if (cache.tail) {
       this.push(cache.tail);
     }
+
     callback();
   }
 

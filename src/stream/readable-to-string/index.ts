@@ -13,5 +13,6 @@ export default async function readableToString(readable) {
   for await (const chunk of readable) {
     result += chunk;
   }
+
   return result;
 }

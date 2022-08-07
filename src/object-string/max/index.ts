@@ -1,5 +1,5 @@
 /**
- * longest string in an object
+ * Longest string in an object
  */
 export default function (o: ObjectStringArray) {
   return Object.values(o).reduce(function (acc: number, s: string) {

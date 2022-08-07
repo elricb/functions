@@ -7,7 +7,7 @@
  *   (resolve, reject) => setTimeout(resolve.bind(null, 2), 1000),
  *   (resolve, reject) => setTimeout(resolve.bind(null, 3), 1000)
  * ];
- * 
+ *
  * promiseSynchronous(a, (i) => console.log(`Promise ${i} done.`)).then(() =>
  *   console.log("All done")
  * );

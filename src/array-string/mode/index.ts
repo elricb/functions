@@ -1,16 +1,16 @@
 /**
  * The mode is the number that occurs most often in a data set.
  */
-export default function (arr: Array<string>) {
-  const a = arr.map(s => s.length);
+export default function (array: string[]) {
+  const a = array.map(s => s.length);
 
   return Object.values(
-    a.reduce((count, e) => {
-      if (!(e in count)) {
-        count[e] = [0, e];
+    a.reduce((count, key) => {
+      if (!(key in count)) {
+        count[key] = [0, key];
       }
 
-      count[e][0]++;
+      count[key][0]++;
       return count;
     }, {})
   ).reduce((a, v) => (v[0] < a[0] ? a : v), [0, null])[1];

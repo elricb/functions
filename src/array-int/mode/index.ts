@@ -1,15 +1,15 @@
 /**
  * The mode is the number that occurs most often in a data set.
  */
-export default function (a: Array<number>) {
+export default function (array: number[]) {
   return Object.values(
-    a.reduce((count, e) => {
-      if (!(e in count)) {
-        count[e] = [0, e];
+    array.reduce((count, key) => {
+      if (!(key in count)) {
+        count[key] = [0, key];
       }
 
-      count[e][0]++;
+      count[key][0]++;
       return count;
     }, {})
-  ).reduce((a, v) => (v[0] < a[0] ? a : v), [0, null])[1];
+  ).reduce((array, v) => (v[0] < array[0] ? array : v), [0, null])[1];
 }

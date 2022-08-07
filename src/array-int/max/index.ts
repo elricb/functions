@@ -1,8 +1,8 @@
 /**
- * largest number in an array
+ * Largest number in an array
  */
-export default function (a: Array<number>) {
-  return a.reduce(function (last: number, current: number) {
+export default function (array: number[]) {
+  return array.reduce(function (last: number, current: number) {
     return last > current ? last : current;
   }, 0);
 }

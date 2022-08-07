@@ -6,11 +6,17 @@
  * abort((v,x) => v(), controller);
  * controller.abort();
  */
-export default function (executor: FunctionExecutor, controller: AbortController) {
-  new Promise((resolve, reject) => {
-    // controller.signal.addEventListener("abort", function () {
-    //   reject();
-    // });
+export default function (
+  executor: FunctionExecutor,
+  controller: AbortController
+) {
+  return new Promise((resolve, reject) => {
+    if ("addEventListener" in controller.signal) {
+      controller.signal.addEventListener("abort", function () {
+        reject();
+      });
+    }
+
     executor(resolve, reject);
   });
 }

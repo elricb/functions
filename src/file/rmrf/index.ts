@@ -6,6 +6,7 @@ export default function (directory: string): Promise<void> {
       if (error) {
         reject(error);
       }
+
       resolve();
     });
   });

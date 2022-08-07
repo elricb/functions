@@ -5,4 +5,4 @@ export default function (f: FunctionExecutor) {
   return function () {
     return new Promise(f);
   };
-};
+}

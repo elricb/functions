@@ -1,5 +1,5 @@
 /**
- * shortest string in an object
+ * Shortest string in an object
  */
 export default function (o: ObjectStringArray) {
   const a = Object.values(o);

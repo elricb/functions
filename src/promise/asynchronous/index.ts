@@ -7,7 +7,7 @@
  *   (resolve, reject) => setTimeout(resolve.bind(null, 2), 1000),
  *   (resolve, reject) => setTimeout(resolve.bind(null, 3), 1000)
  * ];
- * 
+ *
  * promiseAsynchronous(a).then((arrayResults) =>
  *   console.log(arrayResults, "All done")
  * );
