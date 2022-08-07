@@ -44,7 +44,7 @@
     "build-cjs": "./node_modules/typescript/bin/tsc --project ./tsconfig-cjs.json --outDir ./lib/cjs --importHelpers",
     "build-esm": "./node_modules/typescript/bin/tsc --project ./tsconfig-esm.json --outDir ./lib/esm --importHelpers",
     "build": "rm -rf ./lib && npm run build-esm && npm run build-cjs",
-    "release": "npm test && npm run docs && npm run build"
+    "release": "npm run lint && npm test && npm run docs && npm run build"
   },
   "devDependencies": {
     "@elricb/prettier-config": "^0.0.1",
