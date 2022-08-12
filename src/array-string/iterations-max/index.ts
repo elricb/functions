@@ -5,13 +5,10 @@ import max from "../max";
  *
  * ```js
  * import arrayStringIterationsMax from "@elricb/functions/array-string/iterations-max/index.js";
- *
- * const a = ["list", "of", "items", "to", "right", "align"];
- * const max = arrayStringIterationsMax(a);
- *
- * for (let i = 0; i < a.length; i++) {
- *   console.log(a[i].padStart(max - a[i].length));
- * }
+ * const padding = 1;
+ * console.log(
+ *   arrayStringIterationsMax(["list", "of", "items", "to", "right", "align"], 10, padding * 2)
+ * );
  * ```
  */
 export default function (a: string[], cols: number, offset = 0) {
