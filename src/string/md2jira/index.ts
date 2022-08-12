@@ -1,9 +1,9 @@
 /**
  * Convert markdown to jira text
  */
-export default function (str: string): string {
-  var map = {
-    //cite: '??',
+export default function (text: string): string {
+  const map = {
+    // TBD cite: '??',
     del: "-",
     ins: "+",
     sup: "^",
@@ -11,19 +11,21 @@ export default function (str: string): string {
   };
 
   return (
-    str
-      // tables
+    text
+      // Tables
+      // TBD /^\n((?:\|.*?)+\|)[ \t]*\n((?:\|\s*?\-{3,}\s*?)+\|)[ \t]*\n((?:(?:\|.*?)+\|[ \t]*\n)*)$/gm
       .replace(
-        /^\n((?:\|.*?)+\|)[ \t]*\n((?:\|\s*?\-{3,}\s*?)+\|)[ \t]*\n((?:(?:\|.*?)+\|[ \t]*\n)*)$/gm,
+        /^\n((?:\|.*?)+\|)[ \t]*\n((?:\|\s*?-{3,}\s*?)+\|)[ \t]*\n((?:(?:\|.*?)+\|[ \t]*\n)*)$/gm,
         function (match, headerLine, separatorLine, rowstr) {
-          var headers = headerLine.match(/[^|]+(?=\|)/g);
-          var separators = separatorLine.match(/[^|]+(?=\|)/g);
+          const headers = headerLine.match(/[^|]+(?=\|)/g);
+          const separators = separatorLine.match(/[^|]+(?=\|)/g);
           if (headers.length !== separators.length) {
             return match;
           }
-          var rows = rowstr.split("\n");
+
+          const rows = rowstr.split("\n");
           if (rows.length === 1 + 1 && headers.length === 1) {
-            // panel
+            // Panel
             return (
               "{panel:title=" +
               headers[0].trim() +
@@ -31,9 +33,9 @@ export default function (str: string): string {
               rowstr.replace(/^\|(.*)[ \t]*\|/, "$1").trim() +
               "\n{panel}\n"
             );
-          } else {
-            return "||" + headers.join("||") + "||\n" + rowstr;
           }
+
+          return "||" + headers.join("||") + "||\n" + rowstr;
         }
       )
       // Bold, Italic, and Combined (bold+italic)
@@ -50,7 +52,8 @@ export default function (str: string): string {
         }
       })
       // All Headers (# format)
-      .replace(/^([#]+)(.*?)$/gm, function (match, level, content) {
+      // TBD   /^([#]+)(.*?)$/gm
+      .replace(/^(#+)(.*?)$/gm, function (match, level, content) {
         return "h" + level.length + "." + content;
       })
       // Headers (H1 and H2 underlines)
@@ -59,37 +62,47 @@ export default function (str: string): string {
       })
       // Ordered lists
       .replace(/^([ \t]*)\d+\.\s+/gm, function (match, spaces) {
-        return Array(Math.floor(spaces.length / 2 + 1)).join("#") + "# ";
+        return (
+          Array.from({length: Math.floor(spaces.length / 2 + 1)}).join("#") +
+          "# "
+        );
       })
       // Un-Ordered Lists
       .replace(/^([ \t]*)\*\s+/gm, function (match, spaces) {
-        return Array(Math.floor(spaces.length / 2 + 1)).join("*") + "* ";
+        return (
+          Array.from({length: Math.floor(spaces.length / 2 + 1)}).join("*") +
+          "* "
+        );
       })
       // Headers (h1 or h2) (lines "underlined" by ---- or =====)
       // Citations, Inserts, Subscripts, Superscripts, and Strikethroughs
       .replace(
         new RegExp("<(" + Object.keys(map).join("|") + ")>(.*?)</\\1>", "g"),
         function (match, from, content) {
-          var to = map[from];
+          const to = map[from];
           return to + content + to;
         }
       )
       // Other kind of strikethrough
       .replace(/(\s+)~~(.*?)~~(\s+)/g, "$1-$2-$3")
       // Named/Un-Named Code Block
-      .replace(/```(.+\n)?((?:.|\n)*?)```/g, function (match, synt, content) {
-        var code = "{code}";
+      // TBD /```(.+\n)?((?:.|\n)*?)```/g
+      .replace(/```(.+\n)?([.\n]*?)```/g, function (match, synt, content) {
+        let code = "{code}";
         if (synt) {
           code = "{code:" + synt.replace(/\n/g, "") + "}\n";
         }
+
         return code + content + "{code}";
       })
       // Inline-Preformatted Text
       .replace(/`([^`]+)`/g, "{{$1}}")
       // Images
-      .replace(/!\[[^\]]*\]\(([^)]+)\)/g, "!$1!")
+      // TBD /!\[[^\]]*\]\(([^)]+)\)/g
+      .replace(/!\[[^\]]*]\(([^)]+)\)/g, "!$1!")
       // Named Link
-      .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "[$1|$2]")
+      // TBD /\[([^\]]+)\]\(([^)]+)\)/g
+      .replace(/\[([^\]]+)]\(([^)]+)\)/g, "[$1|$2]")
       // Un-Named Link
       .replace(/<([^>]+)>/g, "[$1]")
       // Single Paragraph Blockquote
