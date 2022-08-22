@@ -1,9 +1,9 @@
 import {Transform} from "stream";
-import max from "../../array-string/max";
-import lastIndexOf from "../../array-string/last-index-of";
 
 /**
  * Stream.Transform find/replace list of strings
+ *
+ * Disclaimer:  doesn't replace words between chunks atm
  *
  * ```js
  * import {pipeline, Readable} from "stream";
@@ -20,35 +20,25 @@ export default function (
   baseEncoding: string = "utf8"
 ): Transform {
   const cache = {
-    tail: "",
-    keys: Object.keys(replaceList),
-    rewind: max(Object.keys(replaceList))
+    keys: Object.keys(replaceList)
   };
 
   function transform(chunk, encoding, callback) {
-    let haystack = cache.tail + chunk.toString(baseEncoding);
-    let lastIndex = lastIndexOf(haystack, cache.keys);
-    lastIndex = Math.max(lastIndex, haystack.length - cache.rewind);
+    const haystack = chunk.toString(baseEncoding);
 
-    cache.tail = haystack.slice(lastIndex);
-    haystack = haystack.slice(0, lastIndex);
+    if (haystack.includes("\u{FFFD}")) {
+      callback(null, chunk);
+      return;
+    }
 
     callback(
       null,
-      cache.keys.reduce((acc, search) => {
-        acc = acc.replaceAll(search, replaceList[search]);
-        return acc;
-      }, haystack)
+      cache.keys.reduce(
+        (acc, search) => acc.replaceAll(search, replaceList[search]),
+        haystack
+      )
     );
   }
 
-  function flush(callback) {
-    if (cache.tail) {
-      this.push(cache.tail);
-    }
-
-    callback();
-  }
-
-  return new Transform({transform, flush});
+  return new Transform({transform});
 }
