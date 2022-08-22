@@ -20,7 +20,9 @@ import max from "../../array-string/max";
 /// If toString failed set tail as chunk
 ///   is last instanceof Buffer just callback
 export default function (
-  replaceList: ObjectStringArray,
+  replaceList: {
+    [index: string | number]: string;
+  },
   baseEncoding: string = "utf8"
 ): Transform {
   const cache = {

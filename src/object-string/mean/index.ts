@@ -2,7 +2,7 @@
  * The mean (average) of a data set is found by adding all numbers in
  * the data set and then dividing by the number of values in the set.
  */
-export default function (o: ObjectStringArray) {
+export default function (o: {[index: string | number]: string}) {
   let t = 0;
   let i = 0;
 

@@ -16,7 +16,9 @@ import {Transform} from "stream";
  * ```
  */
 export default function (
-  replaceList: ObjectStringArray,
+  replaceList: {
+    [index: string | number]: string;
+  },
   baseEncoding: string = "utf8"
 ): Transform {
   const cache = {

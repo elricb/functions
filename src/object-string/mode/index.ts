@@ -1,7 +1,7 @@
 /**
  * The mode is the number that occurs most often in a data set.
  */
-export default function (o: ObjectStringArray) {
+export default function (o: {[index: string | number]: string}) {
   const a = Object.values(o).map(s => s.length);
 
   return Object.values(
