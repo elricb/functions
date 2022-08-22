@@ -18,3 +18,6 @@ import max from "@elricb/functions/array-string/max/index.js";
 console.log(max(["a", "ab", "abc"]));
 ```
 
+## Documentation
+
+See `docs/index.html` for API reference.
