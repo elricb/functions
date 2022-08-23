@@ -9,6 +9,7 @@
   "author": "elricb (https://github.com/elricb)",
   "main": "lib/cjs/index.js",
   "module": "lib/esm/index.js",
+  "types": "src/typescript.d.ts",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/elricb/functions/issues"
