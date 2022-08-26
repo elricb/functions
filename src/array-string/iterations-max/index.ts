@@ -2,6 +2,7 @@ import max from "../max";
 
 /**
  * Number of times the largest string fits into allocated space
+ * @returns integer | -1 on error
  *
  * ```js
  * import arrayStringIterationsMax from "@elricb/functions/array-string/iterations-max/index.js";
@@ -11,6 +12,6 @@ import max from "../max";
  * );
  * ```
  */
-export default function (a: string[], cols: number, offset = 0) {
-  return Math.floor(cols / (max(a) + offset));
+export default function (iterator: string[], total: number, offset = 0): number {
+  return Math.floor(total / (max(iterator) + offset));
 }
