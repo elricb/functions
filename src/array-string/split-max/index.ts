@@ -1,4 +1,5 @@
-import iterationsMax from "../iterations-max";
+import max from "../max";
+import split from "../split";
 
 /**
  * Split array into multiple based on maximum character space allowance.
@@ -11,13 +12,10 @@ import iterationsMax from "../iterations-max";
  * );
  * ```
  */
-export default function (a: string[], cols: number, offset = 0) {
-  const result = [];
-  const max = iterationsMax(a, cols, offset);
-
-  for (let i = 0; i < a.length; i += max) {
-    result.push(a.slice(i, i + max));
-  }
-
-  return result;
+export default function (
+  iterator: string[],
+  total: number,
+  offset = 0
+): string[][] {
+  return split(iterator, max(iterator) + offset, total);
 }
