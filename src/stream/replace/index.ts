@@ -3,7 +3,7 @@ import {Transform} from "stream";
 /**
  * Stream.Transform find/replace list of strings
  *
- * Disclaimer:  doesn't replace words between chunks atm
+ * Disclaimer:  doesn't replace words between chunks
  *
  * ```js
  * import {pipeline, Readable} from "stream";
