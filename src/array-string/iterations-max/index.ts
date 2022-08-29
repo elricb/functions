@@ -12,6 +12,10 @@ import max from "../max";
  * );
  * ```
  */
-export default function (iterator: string[], total: number, offset = 0): number {
+export default function (
+  iterator: string[],
+  total: number,
+  offset = 0
+): number {
   return Math.floor(total / (max(iterator) + offset));
 }
