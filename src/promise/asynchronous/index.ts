@@ -2,10 +2,12 @@
  * Asynchronously resolve array of Promise executor functions.
  *
  * ```js
+ * import promiseAsynchronous from "@elricb/functions/promise/asynchronous/index.js";
+ *
  * const a = [
- *   (resolve, reject) => setTimeout(resolve.bind(null, 1), 1000),
- *   (resolve, reject) => setTimeout(resolve.bind(null, 2), 1000),
- *   (resolve, reject) => setTimeout(resolve.bind(null, 3), 1000)
+ *   (resolve, reject) => setTimeout(resolve.bind(null, 1), 400),
+ *   (resolve, reject) => setTimeout(resolve.bind(null, 2), 200),
+ *   (resolve, reject) => setTimeout(resolve.bind(null, 3), 300)
  * ];
  *
  * promiseAsynchronous(a).then((arrayResults) =>
@@ -16,5 +18,10 @@
 export default async function (
   iterator: Iterable<FunctionExecutor>
 ): Promise<any> {
-  return Promise.all(iterator);
+  const promises = [];
+  for (const executor of iterator) {
+    promises.push(new Promise(executor));
+  }
+
+  return Promise.all(promises);
 }
