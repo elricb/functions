@@ -7,7 +7,7 @@ import max from "../array-string/max";
  *
  * ```js
  * import {pipeline, Readable} from "stream";
- * import streamReplace from "@elricb/functions/stream/replace/index.js";
+ * import streamReplace from "@elricb/functions/stream/replace";
  * pipeline(
  *   Readable.from('Good morning!', {encoding: 'utf8'}),
  *   streamReplace({morning: "evening"}),

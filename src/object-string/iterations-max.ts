@@ -4,7 +4,7 @@ import max from "./max";
  * How many times does largest string fit into allocated space
  *
  * ```javascript
- * import iterationsMax from "iterations-max";
+ * import iterationsMax from "@elricb/functions/object-string/iterations-max";
  *
  * console.log(iterationsMax(
  *   {"test1": "value1", "test2": "value2", "test3": "value3"},

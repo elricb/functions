@@ -2,7 +2,7 @@
  * Synchronously resolve array of Promise executor functions.
  *
  * ```js
- * import promiseSynchronous from "@elricb/functions/promise/synchronous/";
+ * import promiseSynchronous from "@elricb/functions/promise/synchronous";
  *
  * const a = [
  *   (resolve, reject) => setTimeout(resolve.bind(null, 1), 600),
