@@ -47,6 +47,9 @@
     "build": "rm -rf ./lib && npm run build-esm && npm run build-cjs",
     "release": "npm run lint && npm test && npm run docs && npm run build"
   },
+  "engines": {
+    "node": ">=15.0.0"
+  },
   "devDependencies": {
     "@elricb/prettier-config": "^0.0.1",
     "@elricb/xo-config": "^0.0.14",
