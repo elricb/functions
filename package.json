@@ -17,26 +17,10 @@
   "homepage": "https://github.com/elricb/functions#readme",
   "type": "commonjs",
   "exports": {
-    ".": {
-      "import": {
-        "module": "./lib/esm/index.js",
-        "node": "./lib/esm/index.mjs",
-        "default": "./lib/esm/index.js"
-      },
-      "require": {
-        "node": "./lib/cjs/index.cjs",
-        "default": "./lib/cjs/index.js"
-      },
-      "default": "./lib/cjs/index.js"
-    },
     "./*": {
-      "require": "./lib/cjs/*",
-      "default": "./lib/esm/*"
-    },
-    "./amd/*": "./lib/amd/*",
-    "./cjs/*": "./lib/cjs/*",
-    "./esm/*": "./lib/esm/*",
-    "./package.json": "./package.json"
+      "require": "./lib/cjs/*.js",
+      "import": "./lib/esm/*.js"
+    }
   },
   "scripts": {
     "test": "jest",
