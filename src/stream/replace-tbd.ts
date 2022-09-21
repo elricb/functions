@@ -1,5 +1,5 @@
 import {Transform} from "stream";
-import max from "../../array-string/max";
+import max from "../array-string/max";
 
 /**
  * Stream.Transform find/replace list of strings
