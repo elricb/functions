@@ -2,19 +2,19 @@
   "name": "@elricb/functions",
   "version": "1.0.0",
   "description": "Reusable low level functions",
+  "license": "MIT",
+  "author": "elricb (https://github.com/elricb)",
+  "homepage": "https://github.com/elricb/functions#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/elricb/functions.git"
   },
-  "author": "elricb (https://github.com/elricb)",
-  "main": "lib/cjs/index.js",
-  "module": "lib/esm/index.js",
-  "types": "src/typescript.d.ts",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/elricb/functions/issues"
   },
-  "homepage": "https://github.com/elricb/functions#readme",
+  "main": "lib/cjs/index.js",
+  "module": "lib/esm/index.js",
+  "types": "src/typescript.d.ts",
   "type": "commonjs",
   "exports": {
     "./*": {

@@ -20,4 +20,13 @@ console.log(max(["a", "ab", "abc"]));
 
 ## Documentation
 
-See `docs/index.html` for API reference.
+### Release Notes
+
+View commit tag for release notes.
+
+* [release list](https://github.com/elricb/functions/tags)
+
+### API
+
+See `./docs/index.html`.
+
