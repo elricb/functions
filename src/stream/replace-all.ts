@@ -10,7 +10,7 @@ import max from "../array-string/max";
  * pipeline(
  *   Readable.from('Good morning!', {encoding: 'utf8'}),
  *   streamReplace({morning: "evening"}),
- *   new Writable({write(chunk) { console.log(chunk.toString(); }})
+ *   new Writable({write(chunk, encoding, callback) { console.log(chunk.toString(); callback(); }})
  * );
  * ```
  */
