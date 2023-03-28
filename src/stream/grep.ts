@@ -14,7 +14,7 @@ import {Transform} from "stream";
  * ```
  */
 function streamGrep(
-  grep: string[] | Array<RegExp> | string,
+  grep: string[] | RegExp[] | string,
   baseEncoding: string = "utf8"
 ): Transform {
   const search = Array.isArray(grep) ? grep : [grep];
