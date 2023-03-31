@@ -25,7 +25,7 @@ export default function (
     keys: Object.keys(replaceList)
   };
 
-  function transform(chunk, encoding, callback) {
+  function transform(chunk, _, callback) {
     const haystack = chunk.toString(baseEncoding);
 
     if (haystack.includes("\u{FFFD}")) {

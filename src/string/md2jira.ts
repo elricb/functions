@@ -50,7 +50,7 @@ export default function (text: string): string {
         }
       )
       // Bold, Italic, and Combined (bold+italic)
-      .replace(/([*_]+)(\S.*?)\1/g, function (match, wrapper, content) {
+      .replace(/([*_]+)(\S.*?)\1/g, function (_, wrapper, content) {
         switch (wrapper.length) {
           case 1:
             return "_" + content + "_";
@@ -64,22 +64,22 @@ export default function (text: string): string {
       })
       // All Headers (# format)
       // TBD   /^([#]+)(.*?)$/gm
-      .replace(/^(#+)(.*?)$/gm, function (match, level, content) {
+      .replace(/^(#+)(.*?)$/gm, function (_, level, content) {
         return "h" + level.length + "." + content;
       })
       // Headers (H1 and H2 underlines)
-      .replace(/^(.*?)\n([=-]+)$/gm, function (match, content, level) {
+      .replace(/^(.*?)\n([=-]+)$/gm, function (_, content, level) {
         return "h" + (level[0] === "=" ? 1 : 2) + ". " + content;
       })
       // Ordered lists
-      .replace(/^([ \t]*)\d+\.\s+/gm, function (match, spaces) {
+      .replace(/^([ \t]*)\d+\.\s+/gm, function (_, spaces) {
         return (
           Array.from({length: Math.floor(spaces.length / 2 + 1)}).join("#") +
           "# "
         );
       })
       // Un-Ordered Lists
-      .replace(/^([ \t]*)\*\s+/gm, function (match, spaces) {
+      .replace(/^([ \t]*)\*\s+/gm, function (_, spaces) {
         return (
           Array.from({length: Math.floor(spaces.length / 2 + 1)}).join("*") +
           "* "
@@ -89,7 +89,7 @@ export default function (text: string): string {
       // Citations, Inserts, Subscripts, Superscripts, and Strikethroughs
       .replace(
         new RegExp("<(" + Object.keys(map).join("|") + ")>(.*?)</\\1>", "g"),
-        function (match, from, content) {
+        function (_, from, content) {
           const to = map[from];
           return to + content + to;
         }
@@ -98,7 +98,7 @@ export default function (text: string): string {
       .replace(/(\s+)~~(.*?)~~(\s+)/g, "$1-$2-$3")
       // Named/Un-Named Code Block
       // TBD /```(.+\n)?((?:.|\n)*?)```/g
-      .replace(/```(.+\n)?([.\n]*?)```/g, function (match, synt, content) {
+      .replace(/```(.+\n)?([.\n]*?)```/g, function (_, synt, content) {
         let code = "{code}";
         if (synt) {
           code = "{code:" + synt.replace(/\n/g, "") + "}\n";

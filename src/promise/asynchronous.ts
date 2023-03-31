@@ -15,13 +15,15 @@
  * );
  * ```
  */
-export default async function (
-  iterator: Iterable<FunctionExecutor>
-): Promise<any> {
-  const promises = [];
-  for (const executor of iterator) {
-    promises.push(new Promise(executor));
-  }
+export default async function (iterator: FunctionExecutor[]): Promise<any> {
+  /**
+   * Requires minimum target es2015
+   * const promises = [];
+   * for (const executor of iterator) {
+   *   promises.push(new Promise(executor));
+   * }
+   * return Promise.all(promises);
+   */
 
-  return Promise.all(promises);
+  return Promise.all(iterator.map(executor => new Promise(executor)));
 }

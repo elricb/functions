@@ -16,15 +16,15 @@ export default function (text: string): string {
   return (
     text
       // Ordered Lists
-      .replace(/^[ \t]*(\*+)\s+/gm, function (match, stars) {
+      .replace(/^[ \t]*(\*+)\s+/gm, function (_, stars) {
         return Array.from({length: stars.length}).join("  ") + "* ";
       })
       // Un-ordered lists
-      .replace(/^[ \t]*(#+)\s+/gm, function (match, nums) {
+      .replace(/^[ \t]*(#+)\s+/gm, function (_, nums) {
         return Array.from({length: nums.length}).join("  ") + "1. ";
       })
       // Headers 1-6
-      .replace(/^h([0-6])\.(.*)$/gm, function (match, level, content) {
+      .replace(/^h([0-6])\.(.*)$/gm, function (_, level, content) {
         return (
           Array.from({length: Number.parseInt(level, 10) + 1}).join("#") +
           content
@@ -76,7 +76,7 @@ export default function (text: string): string {
         "\n| $1 |\n| --- |\n| $2 |"
       )
       // Table header
-      .replace(/^[ \t]*((?:\|\|.*?)+\|\|)[ \t]*$/gm, function (match, headers) {
+      .replace(/^[ \t]*((?:\|\|.*?)+\|\|)[ \t]*$/gm, function (_, headers) {
         const singleBarred = headers.replace(/\|\|/g, "|");
 
         return (

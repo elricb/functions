@@ -16,10 +16,17 @@
  * ```
  */
 export default async function (
-  iterator: Iterable<FunctionExecutor>,
+  iterator: FunctionExecutor[],
   callback: Function = () => {}
 ): Promise<any> {
-  for (const executor of iterator) {
-    callback(await new Promise(executor));
+  /**
+   * Requires minimum target es2015
+   * for (const executor of iterator) {
+   *   callback(await new Promise(executor));
+   * }
+   */
+
+  for (let i = 0; i < iterator.length; i++) {
+    callback(await new Promise(iterator[i]));
   }
 }

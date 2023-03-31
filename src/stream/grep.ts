@@ -1,4 +1,4 @@
-import {Transform} from "stream";
+import {Transform} from "node:stream";
 
 /**
  * Stream.Transform find list of strings or regular expressions
@@ -19,7 +19,7 @@ function streamGrep(
 ): Transform {
   const search = Array.isArray(grep) ? grep : [grep];
 
-  function transform(chunk, encoding, callback) {
+  function transform(chunk, _, callback) {
     const haystack = chunk.toString(baseEncoding);
     let b = false;
 
