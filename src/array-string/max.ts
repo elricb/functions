@@ -13,7 +13,13 @@
  * ```
  */
 export default function (a: string[]) {
-  return a.reduce(function (last: number, current: string) {
-    return last > current.length ? last : current.length;
-  }, 0);
+  let length = 0;
+
+  for (let i = 0; i < a.length; i++) {
+    if (a[i].length > length) {
+      length = a[i].length;
+    }
+  }
+
+  return length;
 }
