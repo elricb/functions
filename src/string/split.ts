@@ -6,10 +6,18 @@
  *
  * const longString = ["OneLongUnbrokenString"];
  * console.log(split(longString, 6));
+ *
+ * [ 'OneLon', 'gUnbro', 'kenStr', 'ing' ]
  * ```
  */
 function split(text: string, whole: number): string[] {
-  return text.match(new RegExp(`.{${whole}}`, "g"));
+  const result = [];
+
+  for (let i = 0; i < text.length; i += whole) {
+    result.push(text.slice(i, i + whole));
+  }
+
+  return result;
 }
 
 export default split;
